@@ -27,8 +27,8 @@
                   <tr>
                     <th scope="col">車號</th>
                     <th scope="col">車種</th>
-                    <th scope="col">起點(到站)</th>
-                    <th scope="col">終點(離站)</th>
+                    <th scope="col">起點(離站)</th>
+                    <th scope="col">終點(到站)</th>
                   </tr>
                 </thead>
                 <tbody class="info">
@@ -77,9 +77,9 @@
                     for (let info of table) {
                         $('.info').append(`
                             <tr>
-                                <th scope="row">${info.TrainNo}</th>
-                                <td>${info.TrainTypeName.Zh_tw}</td>
-                                <td>${info.OriginStopTime.StationName.Zh_tw}(${info.OriginStopTime.ArrivalTime})</td>
+                                <th scope="row">${info.DailyTrainInfo.TrainNo}</th>
+                                <td>${info.DailyTrainInfo.TrainTypeName.Zh_tw}</td>
+                                <td>${info.OriginStopTime.StationName.Zh_tw}(${info.OriginStopTime.DepartureTime})</td>
                                 <td>${info.DestinationStopTime.StationName.Zh_tw}(${info.DestinationStopTime.ArrivalTime})</td>
                             </tr>
                         `)}
@@ -93,7 +93,6 @@
         $(".btn").click(() => {
             start = $("#start").val()
             end = $("#end").val()
-            console.log(start, end, time)
             getTimetable(start, end, time)
         })
         
