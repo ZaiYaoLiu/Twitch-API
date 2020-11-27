@@ -7,18 +7,100 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <title>火車時刻表</title>
 
+    <style>
+        .alert {
+            display: none;
+            color: red;
+        }
+    </style>
+
 </head>
 <body>
     
-    <div class="main m-5">
+    <div class="main m-5 container m-auto p-5">
         <form>
+            
             <div class="form-row">
-                起站:
+                <h3>
+                    日期：<span class="alert time">*請輸入日期</span>
+                </h3>
+                <input type="date" class="custom-select custom-select-lg mb-3" id="date">
+                <h3>
+                    起點：<span class="alert start">*請輸入起點</span>
+                </h3>        
+                <div class="m-auto p-3" id="OriginStop">
+                    北部：
+                    <div class="btn-group m-2" role="group" aria-label="Basic example">                        
+                        <button type="button" class="btn btn-outline-primary " value="基隆市">基隆市</button>
+                        <button type="button" class="btn btn-outline-primary active" value="臺北市">臺北市</button>
+                        <button type="button" class="btn btn-outline-primary " value="新北市">新北市</button>
+                        <button type="button" class="btn btn-outline-primary " value="桃園市">桃園市</button>
+                        <button type="button" class="btn btn-outline-primary " value="新竹縣">新竹縣</button>
+                        <button type="button" class="btn btn-outline-primary " value="新竹市">新竹市</button>
+                    </div><br>
+                    中部：
+                    <div class="btn-group m-2" role="group" aria-label="Basic example">                        
+                        <button type="button" class="btn btn-outline-primary " value="苗栗縣">苗栗縣</button>
+                        <button type="button" class="btn btn-outline-primary " value="臺中市">臺中市</button>
+                        <button type="button" class="btn btn-outline-primary " value="彰化縣">彰化縣</button>
+                        <button type="button" class="btn btn-outline-primary " value="南投縣">南投縣</button>
+                        <button type="button" class="btn btn-outline-primary " value="雲林縣">雲林縣</button>
+                    </div><br>
+                    南部：
+                    <div class="btn-group m-2" role="group" aria-label="Basic example">                        
+                        <button type="button" class="btn btn-outline-primary " value="嘉義縣">嘉義縣</button>
+                        <button type="button" class="btn btn-outline-primary " value="嘉義市">嘉義市</button>
+                        <button type="button" class="btn btn-outline-primary " value="臺南市">臺南市</button>
+                        <button type="button" class="btn btn-outline-primary " value="高雄市">高雄市</button>
+                        <button type="button" class="btn btn-outline-primary " value="屏東縣">屏東縣</button>
+                    </div><br>
+                    東部：
+                    <div class="btn-group m-2" role="group" aria-label="Basic example">                        
+                        <button type="button" class="btn btn-outline-primary " value="臺東縣">臺東縣</button>
+                        <button type="button" class="btn btn-outline-primary " value="花蓮縣">花蓮縣</button>
+                        <button type="button" class="btn btn-outline-primary " value="宜蘭縣">宜蘭縣</button>
+                    </div>
+                </div>
                 <select class="custom-select custom-select-lg mb-3" id="start"></select>
-                終點:
+                <h3>
+                    終點：<span class="alert end">*請輸入終點</span>
+                </h3>                
+                <div class="m-auto" id="DestinationStop">
+                    北部：
+                    <div class="btn-group m-2" role="group" aria-label="Basic example">                        
+                        <button type="button" class="btn btn-outline-primary " value="基隆市">基隆市</button>
+                        <button type="button" class="btn btn-outline-primary " value="臺北市">臺北市</button>
+                        <button type="button" class="btn btn-outline-primary " value="新北市">新北市</button>
+                        <button type="button" class="btn btn-outline-primary " value="桃園市">桃園市</button>
+                        <button type="button" class="btn btn-outline-primary " value="新竹縣">新竹縣</button>
+                        <button type="button" class="btn btn-outline-primary " value="新竹市">新竹市</button>
+                    </div><br>
+                    中部：
+                    <div class="btn-group m-2" role="group" aria-label="Basic example">                        
+                        <button type="button" class="btn btn-outline-primary " value="苗栗縣">苗栗縣</button>
+                        <button type="button" class="btn btn-outline-primary active" value="臺中市">臺中市</button>
+                        <button type="button" class="btn btn-outline-primary " value="彰化縣">彰化縣</button>
+                        <button type="button" class="btn btn-outline-primary " value="南投縣">南投縣</button>
+                        <button type="button" class="btn btn-outline-primary " value="雲林縣">雲林縣</button>
+                    </div><br>
+                    南部：
+                    <div class="btn-group m-2" role="group" aria-label="Basic example">                        
+                        <button type="button" class="btn btn-outline-primary " value="嘉義縣">嘉義縣</button>
+                        <button type="button" class="btn btn-outline-primary " value="嘉義市">嘉義市</button>
+                        <button type="button" class="btn btn-outline-primary " value="臺南市">臺南市</button>
+                        <button type="button" class="btn btn-outline-primary " value="高雄市">高雄市</button>
+                        <button type="button" class="btn btn-outline-primary " value="屏東縣">屏東縣</button>
+                    </div><br>
+                    東部：
+                    <div class="btn-group m-2" role="group" aria-label="Basic example">                        
+                        <button type="button" class="btn btn-outline-primary " value="臺東縣">臺東縣</button>
+                        <button type="button" class="btn btn-outline-primary " value="花蓮縣">花蓮縣</button>
+                        <button type="button" class="btn btn-outline-primary " value="宜蘭縣">宜蘭縣</button>
+                    </div>
+                </div>
                 <select class="custom-select custom-select-lg mb-3" id="end"></select>                
             </div>
-            <button type="button" class="btn btn-primary">查詢</button>
+            <button type="button" class="btn btn-primary" id="submit">查詢</button>
         </form>
 
         <div class="content mt-5">
@@ -27,8 +109,9 @@
                   <tr>
                     <th scope="col">車號</th>
                     <th scope="col">車種</th>
-                    <th scope="col">起點(離站)</th>
-                    <th scope="col">終點(到站)</th>
+                    <th scope="col">起點 >> 終點</th>
+                    <th scope="col">花費時間</th>
+                    <!-- <th scope="col">全票</th> -->
                   </tr>
                 </thead>
                 <tbody class="info">
@@ -42,14 +125,19 @@
 
 
     <script>
-        var start = 0;
-        var end = 0;
-        const year = new Date().getFullYear()
-        const month = new Date().getMonth() + 1
-        const date = new Date().getDate()
-        const time =  year+ "-" + month + "-" + date
+        // 給input  date設定預設值
+        var now = new Date();
+        //格式化日，如果小於9，前面補0
+        var day = ("0" + now.getDate()).slice(-2);
+        //格式化月，如果小於9，前面補0
+        var month = ("0" + (now.getMonth() + 1)).slice(-2);
+        //拼裝完整日期格式
+        var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+        //完成賦值
+        $('#date').val(today);
 
-        function getTrainStation() {
+        // 新增車站
+        function getTrainStation(chouseStation, direction) {
             fetch('https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/Station', {
                 method: 'GET'
             })
@@ -57,9 +145,18 @@
                 data.json()
                 .then(Station => {
                     for (let info of Station) {
-                        $('.custom-select').append(`
-                            <option value="${info.StationID}">${info.StationName.Zh_tw}</option>
-                        `)
+                        if (chouseStation === info.LocationCity) {
+                            if (direction) {
+                                $('#start').append(`
+                                    <option value="${info.StationID}">${info.StationName.Zh_tw}</option>
+                                `)
+                            } else {
+                                $('#end').append(`
+                                    <option value="${info.StationID}">${info.StationName.Zh_tw}</option>
+                                `)
+                            }
+                        }
+                        
                     }
                 })
             }).catch((err) => {
@@ -67,6 +164,7 @@
             })         
         }
 
+        // 新增車次
         function getTimetable(start, end, time) {
             fetch(`https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/DailyTimetable/OD/${start}/to/${end}/${time}`, {
                 method: 'GET'
@@ -79,8 +177,8 @@
                             <tr>
                                 <th scope="row">${info.DailyTrainInfo.TrainNo}</th>
                                 <td>${info.DailyTrainInfo.TrainTypeName.Zh_tw}</td>
-                                <td>${info.OriginStopTime.StationName.Zh_tw}(${info.OriginStopTime.DepartureTime})</td>
-                                <td>${info.DestinationStopTime.StationName.Zh_tw}(${info.DestinationStopTime.ArrivalTime})</td>
+                                <td>${info.OriginStopTime.StationName.Zh_tw} >> ${info.DestinationStopTime.StationName.Zh_tw}</td>
+                                <td>${info.OriginStopTime.DepartureTime} >> ${info.DestinationStopTime.ArrivalTime}</td>
                             </tr>
                         `)}
                 })
@@ -88,14 +186,50 @@
                 console.log('Error', err);
             })         
         }
-        getTrainStation()
+       
+        $("#OriginStop").click((e) => {
+            $("#OriginStop button").removeClass("active")
+            $(e.target).addClass("active")
+            $('#start').text('')
+            let originStation = $(e.target).val()
+            getTrainStation(originStation, true)
+        })
 
-        $(".btn").click(() => {
-            start = $("#start").val()
-            end = $("#end").val()
+        $("#DestinationStop").click((e) => {
+            $("#DestinationStop button").removeClass("active")
+            $(e.target).addClass("active")
+            $('#end').text('')
+            let DestinationStop = $(e.target).val()
+            getTrainStation(DestinationStop, false)
+        })
+
+        $("#submit").click((e) => {
+            $('.info').text('')
+            let start = $("#start").val()
+            let end = $("#end").val()
+            let time = $("#date").val()
+            e.preventDefault()
+            if (!time) {
+                $(".time").show()
+            } else {
+                $(".time").hide()
+            }
+
+            if (!start) {
+                $(".start").show()
+            } else {
+                $(".start").hide()
+            }
+
+            if (!end) {
+                $(".end").show()
+            } else {
+                $(".end").hide()
+            }
             getTimetable(start, end, time)
         })
-        
+        getTrainStation("臺北市", true)
+        getTrainStation("臺中市", false)
 
     </script>    
 </body>
