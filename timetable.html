@@ -12,14 +12,17 @@
             display: none;
             color: red;
         }
+
+        .container {
+            max-width: 800px;
+        }
     </style>
 
 </head>
 <body>
     
     <div class="main m-5 container m-auto p-5">
-        <form>
-            
+        <form>            
             <div class="form-row">
                 <h3>
                     日期：<span class="alert time">*請輸入日期</span>
@@ -100,7 +103,7 @@
                 </div>
                 <select class="custom-select custom-select-lg mb-3" id="end"></select>                
             </div>
-            <button type="button" class="btn btn-primary" id="submit">查詢</button>
+            <button type="button" class="btn btn-primary btn-block btn-lg" id="submit">查詢</button>
         </form>
 
         <div class="content mt-5">
